@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    image: kaisen-api-rest:1.0
+    container_name: kaisen-api-rest
+    networks:
+      - kaisen-api-rest-network
+    depends_on:
+      - db
+    ports:
+      - "4000:4000"
+  db:
+    image: mongo:latest
+    container_name: mongo
+    networks:
+      - kaisen-api-rest-network
+    ports:
+      - "27017:27017"
+    environment:
+      - DB_URL=mongodb://mongo:27017/alterway
+      - DB_PORT=27017
+      - DB_NAME=alterway
+    volumes:
+      - kaisen-api-rest-db:/mnt/kaisen-api-rest/db
+networks:
+  kaisen-api-rest-network:
+    external: false
+
+volumes:
+  kaisen-api-rest-db:
+    external: false
