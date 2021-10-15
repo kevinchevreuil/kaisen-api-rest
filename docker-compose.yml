@@ -2,7 +2,7 @@ version: "3.9"
 services:
   app:
     build: .
-    image: kaisen-api-rest:1.0
+    image: registry.gitlab.com/kaisencas/kaisen-api-rest
     container_name: kaisen-api-rest
     networks:
       - kaisen-api-rest-network
