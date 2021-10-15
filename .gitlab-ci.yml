@@ -12,7 +12,7 @@
 
 docker-build:
   # Use the official docker image.
-  image: kaisen-api-rest
+  image: registry.gitlab.com/kaisencas/kaisen-api-rest
   stage: build
   services:
     - docker:dind
