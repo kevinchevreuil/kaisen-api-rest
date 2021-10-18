@@ -28,8 +28,8 @@ docker-build:
         tag=":$CI_COMMIT_REF_SLUG"
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
-    - docker build --pull -t "kaisen-api-rest${tag}" .
-    - docker push "kaisen-api-rest${tag}"
+    - docker build --pull -t "registry.gitlab.com/kaisencas/kaisen-api-rest${tag}" .
+    - docker push "registry.gitlab.com/kaisencas/kaisen-api-rest${tag}"
   # Run this job in a branch where a Dockerfile exists
   rules:
     - if: $CI_COMMIT_BRANCH
