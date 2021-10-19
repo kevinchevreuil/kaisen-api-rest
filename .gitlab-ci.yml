@@ -23,13 +23,14 @@ docker-build:
     - |
       if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
         tag=""
-        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+        sha="$(git rev-parse --verify HEAD)"
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'devel-$sha'"
       else
         tag=":$CI_COMMIT_REF_SLUG"
-        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag-$sha"
       fi
-    - docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" .
-    - docker push "$CI_REGISTRY_IMAGE${tag}"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE${tag-$sha}" .
+    - docker push "$CI_REGISTRY_IMAGE${tag-$sha}"
   # Run this job in a branch where a Dockerfile exists
   rules:
     - if: $CI_COMMIT_BRANCH
