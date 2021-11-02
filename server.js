@@ -34,7 +34,7 @@ app.get('/api/team', function (req, res) {
     })
 })
 
-/*app.get('/api/team/:id'), function (req, res) {
+app.get('/api/team/:id'), function (req, res) {
     const id = req.params.id
     awccmembers.findById(id, (error, team) => {
         if (error || !team) {
@@ -48,7 +48,7 @@ app.get('/api/team', function (req, res) {
             })
         }
     })
-}*/
+}
 
 app.post('/api/team/add', function(req, res) {
     const post = new awccmembers({
@@ -65,3 +65,13 @@ app.post('/api/team/add', function(req, res) {
         res.status(200).send(`Member successfully added.`)
     })
 })
+
+app.get('/health', (req, res) => {
+    const db = {
+      uptime: process.uptime(),
+      message: 'Ok',
+      date: new Date()
+    }
+  
+    res.status(200).send(data);
+});
