@@ -5,3 +5,7 @@ To build the node.js app, exec this command :
 ## Launch the complete stack
 Exec this command :
 `docker-compose up -d`
+
+## Credits
+Kevin Chevreuil - 2023
+GNU GPLv3 license
