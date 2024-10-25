@@ -12,4 +12,5 @@ FROM alpine:3.20 AS final
 RUN apk --no-cache add nodejs
 WORKDIR /srv/app
 COPY --from=clean /srv/app ./
+EXPOSE 4000
 ENTRYPOINT ["node","server.js"]
