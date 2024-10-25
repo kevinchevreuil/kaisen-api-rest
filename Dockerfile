@@ -1,7 +1,7 @@
 FROM node:latest AS build
 RUN mkdir -p /srv/app
 WORKDIR /srv/app/
-COPY package.json package-lock.json server.js /srv/app/
+COPY package.json server.js /srv/app/
 RUN npm install
 
 FROM build AS clean
