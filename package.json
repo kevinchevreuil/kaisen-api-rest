@@ -11,10 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "backend": "^0.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^6.0.9"
+    "express": "^5.*",
+    "mongoose": "^7.*",
+    "package.json": "^0.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^3.*"
   }
 }
